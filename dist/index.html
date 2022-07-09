@@ -29,8 +29,38 @@
 
             <div class="dateContainer" id="dateContainer">
                 <button id="dateButton">set a due date?</button>
+                <p id="dueDate"></p>
                 <div class="pickerDiv" id="pickerDiv"></div>
-                
+            </div>
+
+            <div class="priorityContainer">
+                <p id="priority" class="priority">priority:</p>
+                <form action="#" method="post">
+                    <div class="formElementWrapper">
+                        <label for="none" id="noneLabel">None</label>
+                        <input type="radio" name="radio" id="none" value="none">
+                    </div>
+
+                    <div class="formElementWrapper">
+                        <label for="low" id="lowLabel">Low</label>
+                        <input type="radio" name="radio" id="low">
+                    </div>
+
+                    <div class="formElementWrapper">
+                        <label for="medium" id="mediumLabel">Medium</label>
+                        <input type="radio" name="radio" id="medium">
+                    </div>
+
+                    <div class="formElementWrapper">
+                        <label for="high" id="highLabel">High</label>
+                        <input type="radio" name="radio" id="high">
+                    </div>
+                </form>
+            </div>
+
+            <div class="textAreaContainer">
+                <p class="notes" id="notes">notes:</p>
+                <textarea placeholder="Put your notes here..." class="textArea" id="textArea"></textarea>
             </div>
 
             <div class="buttonContainer">

@@ -63,7 +63,7 @@ body {
   top: 25%;
   left: 25%;
   width: 50%;
-  height: 50%;
+  height: 60%;
   padding-top: 30px;
   background-color: white;
   z-index: 1002;
@@ -127,6 +127,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -135,7 +139,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  bottom: 70px;
+}
+
+#dueDate {
+  margin-top: 5px;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 #dateButton {
@@ -153,6 +162,103 @@ body {
 
 #pickerDiv {
   display: none;
+}
+
+.priorityContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.priority {
+  text-align: center;
+  margin: 30px 0px 10px 0px;
+  font-size: 20px;
+}
+
+.priorityContainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.priorityContainer label, .priorityContainer input {
+  text-align: center;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+#noneLabel {
+  color: grey;
+}
+
+#lowLabel {
+  color: green;
+}
+
+#mediumLabel {
+  color: orange;
+}
+
+#highLabel {
+  color: red;
+}
+
+.formElementWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.textAreaContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.notes {
+  font-size: 20px;
+  margin: 20px 0 5px 10%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.textArea {
+  resize: none;
+  border: none;
+  background: rgba(209, 203, 203, 0.342);
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.textArea:focus {
+  outline: none;
 }
 
 .buttonContainer {
@@ -181,7 +287,7 @@ body {
   height: 1px;
   -webkit-box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.6);
           box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.6);
-  z-index: 100;
+  z-index: 9;
 }
 
 #submitPopup:hover {

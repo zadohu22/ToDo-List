@@ -9,15 +9,22 @@ const createButtonListeners = (() => {
   let overlay = document.getElementById("blackOverlay");
   let createButtonPopup = document.getElementById("submitPopup");
   let popupInput = document.getElementById("userInput");
-  let element = document.getElementById("dateContainer");
   let dateButton = document.getElementById("dateButton");
-  let content = document.getElementById("content");
   let pickerDiv = document.getElementById("pickerDiv");
+  let dueDate = document.getElementById("dueDate");
+  let textArea = document.getElementById("textArea");
+  let radios = document.querySelectorAll('input[type="radio"]');
 
   createButton.addEventListener("click", () => {
     popup.style.display = "flex";
     overlay.style.display = "block";
     popupInput.value = "";
+    textArea.value = "";
+    dueDate.value = "";
+    dueDate.innerHTML = "";
+    radios.forEach((radio => {
+      radio.checked = false;
+    }))
   });
 
   createButtonPopup.addEventListener("click", () => {
@@ -39,17 +46,12 @@ const createButtonListeners = (() => {
       zIndex: 10,
     });
     picker.open();
+    picker.on('submit', function(date, readableDate){
+      dueDate.innerHTML = `Due: ${readableDate}`;
+    })
   });
+
+  
 })();
 
-// const addDatePicker = (() => {
-//     let element = document.getElementById('dateContainer');
-//     let dateButton = document.getElementById('dateButton');
-//     let content = document.getElementById('content');
 
-//     dateButton.addEventListener('click', () => {
-//         let pickerDiv = document.createElement('div');
-//         pickerDiv.id = 'pickerDiv';
-//         content.appendChild(pickerDiv);
-//     })
-// })()
