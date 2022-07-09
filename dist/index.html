@@ -7,13 +7,39 @@
     <title>To Do List</title>
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="datetimebox.css">
+    <link rel="stylesheet" href="simplepicker.css">
+    
 </head>
 <body>
     <div class="sidebar">
-        <h1 class="appName">ToDoList</h1>
+        <h1 class="appName" id="appName">ToDoList</h1>
+        <button class="addNewTodo" id="addNewToDo">Create +</button>
     </div>
-    <div class="content">
+    
+    <div class="content" id="content">
         
+        
+        
+        <div class="createToDoPopup" id="createToDoPopup">
+            
+            <div class="inputContainer">
+                <input type="text" name="userInput" id="userInput" placeholder="I want to..." />
+            </div>
+
+            <div class="dateContainer" id="dateContainer">
+                <button id="dateButton">set a due date?</button>
+                <div class="pickerDiv" id="pickerDiv"></div>
+                
+            </div>
+
+            <div class="buttonContainer">
+                <button id="submitPopup">Add Task</button>
+            </div>
+            
+            
+        </div>
+        <div class="blackOverlay" id="blackOverlay"></div>
     </div>
 </body>
 </html>
