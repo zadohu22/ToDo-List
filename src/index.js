@@ -8,6 +8,7 @@ let overlay = document.getElementById("blackOverlay");
 let createButtonPopup = document.getElementById("submitPopup");
 let popupInput = document.getElementById("userInput");
 let dateButton = document.getElementById("dateButton");
+let dateContainer = document.getElementById("dateContainer");
 let pickerDiv = document.getElementById("pickerDiv");
 let dueDate = document.getElementById("dueDate");
 let textArea = document.getElementById("textArea");
@@ -41,7 +42,7 @@ overlay.addEventListener("click", () => {
 dateButton.addEventListener("click", () => {
     pickerDiv.style.display = "block";
     let picker = new SimplePicker(pickerDiv, {
-      zIndex: 10,
+      zIndex: 1004,
     });
     picker.open();
     picker.on('submit', function(date, readableDate){
