@@ -1,23 +1,23 @@
 import { ToDo } from "./create";
 import SimplePicker from "simplepicker";
 
-let userInput;
 let createButton = document.getElementById("addNewToDo");
 let popup = document.getElementById("createToDoPopup");
 let overlay = document.getElementById("blackOverlay");
-let createButtonPopup = document.getElementById("submitPopup");
-let popupInput = document.getElementById("userInput");
+let addTask = document.getElementById("submitPopup");
+let userInput = document.getElementById("userInput");
 let dateButton = document.getElementById("dateButton");
 let dateContainer = document.getElementById("dateContainer");
 let pickerDiv = document.getElementById("pickerDiv");
 let dueDate = document.getElementById("dueDate");
 let textArea = document.getElementById("textArea");
 let radios = document.querySelectorAll('input[type="radio"]');
+let content = document.getElementById("content");
 
 createButton.addEventListener("click", () => {
     popup.style.display = "flex";
     overlay.style.display = "block";
-    popupInput.value = "";
+    userInput.value = "";
     textArea.value = "";
     dueDate.value = "";
     dueDate.innerHTML = "";
@@ -26,17 +26,23 @@ createButton.addEventListener("click", () => {
     }))
   });
 
-createButtonPopup.addEventListener("click", () => {
+addTask.addEventListener("click", () => {
     popup.style.display = "none";
     overlay.style.display = "none";
-    userInput = popupInput.value;
+    let newTodo = document.createElement('p');
+    let createTodo = new ToDo(`${userInput.value}`);
+    newTodo.textContent = createTodo.title;
+    newTodo.classList.add("newTodo");
+    newTodo.id = 'newTodo';
+    content.appendChild(newTodo);
+
   });
 
 overlay.addEventListener("click", () => {
     popup.style.display = "none";
     overlay.style.display = "none";
     pickerDiv.style.display = "none";
-    popupInput.value = "";
+    userInput.value = "";
   });
 
 dateButton.addEventListener("click", () => {
@@ -51,3 +57,6 @@ dateButton.addEventListener("click", () => {
   });
 
 
+
+let todo = new ToDo('hi');
+console.log(todo.title)
