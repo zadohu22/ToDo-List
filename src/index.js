@@ -13,6 +13,7 @@ let dueDate = document.getElementById("dueDate");
 let textArea = document.getElementById("textArea");
 let radios = document.querySelectorAll('input[type="radio"]');
 let content = document.getElementById("content");
+let cardContainer = document.getElementById('cardContainer');
 
 createButton.addEventListener("click", () => {
     popup.style.display = "flex";
@@ -34,7 +35,7 @@ addTask.addEventListener("click", () => {
     newTodo.textContent = createTodo.title;
     newTodo.classList.add("newTodo");
     newTodo.id = 'newTodo';
-    content.appendChild(newTodo);
+    cardContainer.appendChild(newTodo);
 
   });
 
@@ -46,7 +47,7 @@ overlay.addEventListener("click", () => {
   });
 
 dateButton.addEventListener("click", () => {
-    pickerDiv.style.display = "block";
+    pickerDiv.style.display = "flex";
     let picker = new SimplePicker(pickerDiv, {
       zIndex: 1004,
     });
@@ -58,5 +59,3 @@ dateButton.addEventListener("click", () => {
 
 
 
-let todo = new ToDo('hi');
-console.log(todo.title)
