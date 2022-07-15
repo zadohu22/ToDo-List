@@ -28,10 +28,10 @@
         <div class="priorityContainer">
             <p id="priority" class="priority">priority:</p>
             <form action="#" method="post">
-                <div class="formElementWrapper">
+                <!-- <div class="formElementWrapper">
                     <label for="none" id="noneLabel">None</label>
                     <input type="radio" name="radio" id="none" value="none">
-                </div>
+                </div> -->
 
                 <div class="formElementWrapper">
                     <label for="low" id="lowLabel">Low</label>
@@ -73,6 +73,15 @@
     <div class="content" id="content">
         <h1>Tasks:</h1>
         <div class="cardContainer" id="cardContainer">
+            <div class="topOfContainer">
+                <input type="checkbox" name="taskNameCheck" id="taskNameCheck" />
+                <p class="taskName" id="taskName">Eat food</p>
+            </div>
+           
+            <div class="bottomOfContainer">
+                <p class="taskPriority" id="taskPriority">Priority: High | </p>
+                <p class="taskDueDate" id="taskDueDate">Thurs. 9pm</p>
+            </div>
 
         </div>
         

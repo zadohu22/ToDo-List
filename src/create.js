@@ -1,7 +1,7 @@
 class ToDo{
-    constructor(title, list, notes, priority, date, time){
+    constructor(title, date, time, priority, notes){
         this.title = title;
-        this.list = list;
+        // this.list = list;
         this.notes = notes;
         this.priority = priority;
         this.date = date;

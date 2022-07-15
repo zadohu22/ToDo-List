@@ -264,10 +264,51 @@ body{
 
 .cardContainer{
     width: 30%;
-    height: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
     align-self: flex-start;
     margin-left: 20px;
-    background-color: rgba(211, 211, 211, 0.342);
+    // background-color: rgba(211, 211, 211, 0.342);
     border-radius: 10px;
     color: white;
+}
+
+.topOfContainer{
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 5px 5px 5px 10px;
+    display: flex;
+}
+
+.topOfContainer:hover{
+    background-color: rgba(211, 211, 211, 0.342);
+}
+
+.taskName{
+    margin-left: 5px;
+}
+
+.bottomOfContainer{
+    display: flex;
+    color: rgba(211, 211, 211, 0.7);
+    font-size: 14px;
+    padding-left: 10px;
+    margin-left: 18px;
+}
+
+.classDueDate{
+    margin-left: 10px;
+}
+
+.taskPriority{
+    margin-right: 10px;
+}
+
+.errorMessage{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+    color: red;
 }
