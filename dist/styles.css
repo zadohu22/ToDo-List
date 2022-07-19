@@ -54,11 +54,11 @@ body {
 }
 
 .createToDoPopup {
-  display: none;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -72,15 +72,33 @@ body {
           justify-content: space-between;
   border-radius: 20px;
   width: 400px;
-  height: 60%;
+  height: 450px;
   padding-top: 30px;
   background-color: white;
   z-index: 1002;
   position: absolute;
 }
 
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .blackOverlay {
-  display: none;
+  display: block;
   position: absolute;
   top: 0%;
   left: 0%;
@@ -203,16 +221,16 @@ body {
   font-size: 20px;
 }
 
-.priorityContainer form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .priorityContainer label, .priorityContainer input {
   text-align: center;
   font-weight: 800;
   margin-left: 20px;
+}
+
+.priorityButtonsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #noneLabel {
@@ -294,19 +312,6 @@ body {
   font-size: 18px;
   color: blue;
   cursor: pointer;
-}
-
-#submitPopup::before {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  -webkit-box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.6);
-  z-index: 1003;
 }
 
 #submitPopup:hover {
