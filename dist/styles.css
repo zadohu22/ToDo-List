@@ -344,7 +344,7 @@ form {
 }
 
 .cardContainer {
-  width: 30%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,6 +360,11 @@ form {
   margin-left: 20px;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
+}
+
+.cardContainer:hover {
+  background-color: rgba(211, 211, 211, 0.342);
 }
 
 .topOfContainer {
@@ -371,12 +376,20 @@ form {
   display: flex;
 }
 
-.topOfContainer:hover {
-  background-color: rgba(211, 211, 211, 0.342);
+.taskPriority {
+  cursor: pointer;
+}
+
+.taskDueDate {
+  cursor: pointer;
 }
 
 .taskName {
   margin-left: 5px;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .bottomOfContainer {
