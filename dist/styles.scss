@@ -40,7 +40,7 @@ body{
 }
 
 .createToDoPopup{
-    display: flex;
+    display: none;
     justify-self: center;
     align-self: center;
     flex-direction: column;
@@ -65,7 +65,7 @@ form{
 }
 
 .blackOverlay{
-    display: block;
+    display: none;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -297,7 +297,7 @@ form{
     cursor: pointer;
 }
 
-.taskName{
+.taskNameCheckLabel{
     margin-left: 5px;
     max-width: 90%;
     overflow: hidden;
@@ -321,9 +321,3 @@ form{
     margin-right: 10px;
 }
 
-.errorMessage{
-    text-align: center;
-    margin-top: 50px;
-    font-size: 30px;
-    color: red;
-}
