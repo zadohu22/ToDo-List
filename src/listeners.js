@@ -34,7 +34,7 @@ const taskListener = () => {
             prioritySelection(),
             DomElements.textArea.value
           );
-          console.log(DomElements.textArea.value)
+      
           taskArray.push(createTodo);
           console.log(taskArray);
       
@@ -68,6 +68,7 @@ const overlayListener = () => {
         DomElements.pickerDiv.style.display = "none";
         DomElements.taskInfoPopup.style.display = "none";
         DomElements.userInput.value = "";
+        displayTasks();
 
       });
 }
@@ -89,23 +90,30 @@ const cardContainerListener = () => {
     let cardsArr = Array.from(DomElements.allCardContainers);
     cardsArr.forEach(e => {
         let location = e.dataset.index;
+        console.log(location)
         e.addEventListener('click', (event) => {
+          DomElements.removeButtonPopup.setAttribute('data-index', location);
             if(!event.target.classList.contains("taskNameCheck")){
                 DomElements.taskInfoPopup.style.display = "flex";
                 DomElements.overlay.style.display = "block";
-                
+                DomElements.taskNamePopup.value = taskArray[location].title;
                 DomElements.notesPopup.value = taskArray[location].notes;
-                console.log(taskArray[location].notes)
             }
         })
         
         DomElements.notesPopup.addEventListener('keyup', () => {
             taskArray[location].notes = DomElements.notesPopup.value;
-            console.log(taskArray[location].notes)
         })
 
-    });
+        DomElements.taskNamePopup.addEventListener('keyup', () => {
+          taskArray[location].title = DomElements.taskNamePopup.value;
+      })
+  
+})
+
 }
+        
+
 
 
 
@@ -123,9 +131,10 @@ const displayTasks = () => {
         content
       );
       cardContainer.setAttribute('data-index', i);
-      DomElements.taskNamePopup.innerText = taskArray[i].title;
+      // DomElements.taskNamePopup.innerText = taskArray[i].title;
       
       cardContainerListener();
+      
     //   taskArray[i].notes = DomElements.notesPopup.value;
 
   
@@ -143,6 +152,29 @@ const displayTasks = () => {
         topOfContainer
       );
       taskNameCheck.setAttribute("type", "checkbox");
+
+      //***************** 
+      // BELOW IS LOGIC FOR HIDING PRIORITY AND DATE AND STRIKING THROUGH THE TEXT WHEN THE CHECKBOX IS CLICKED
+      // THIS FUNCTIONALITY WORKS, BUT IS CAUSING ISSUES WITH OTHER THINGS, AND SINCE IT'S NOT A PART OF THE 
+      // ACTUAL PROJECT REQUIREMENTS, I'M LEAVING IT OUT FOR NOW
+      // ONE SOLUTION FOR MAKING THIS WORK PROPERLY WOULD BE TO ADD A 'CLICKED' PROPERTY/METHOD TO THE OBJECT
+      // AND THEN SAYING WHEN CHECKBOX IS CLICKED, OBJECT.CLICKED = TRUE
+      // THEN WHEN THE CARDS ARE WIPED AND REPOPULATED, IF OBJECT.CLICKED = TRUE, THEN ADD ALL THE FUNCTIONALITY 
+      // SO THE ISSUE ARISES WHEN DISPLAYTASKS() IS RAN, BECAUSE IT WIPES ALL CHILDREN AND RE-POPULATES THEM 
+      //************************** 
+
+      // taskNameCheck.addEventListener('click', (event) => {
+      // let bottomOfContainerArr = Array.from(DomElements.allBottomOfContainer);
+
+      //   if(event.target.checked){
+      //     bottomOfContainerArr[i].remove();
+      //     taskNameCheckLabel.classList.toggle('striked');
+          
+      //   }else if(!event.target.checked){
+      //     createBottomOfContainer();
+      //     taskNameCheckLabel.classList.toggle('striked');
+      //   }
+      // })
   
       let taskNameCheckLabel = createDomElement(
         "label",
@@ -151,45 +183,65 @@ const displayTasks = () => {
         topOfContainer
       );
       taskNameCheckLabel.innerHTML = taskArray[i].title;
-  
-      let bottomOfContainer = createDomElement(
-        "div",
-        "bottomOfContainer",
-        "bottomOfContainer",
-        cardContainer
-      );
-  
-      if (taskArray[i].priority != undefined) {
-        let taskPriority = createDomElement(
+      
+      const createBottomOfContainer= () => {
+        let bottomOfContainer = createDomElement(
+          "div",
+          "bottomOfContainer",
+          "bottomOfContainer",
+          cardContainer
+        );
+          bottomOfContainer.setAttribute('data-index', i);
+          
+        if (taskArray[i].priority != undefined) {
+          let taskPriority = createDomElement(
+            "p",
+            "taskPriority",
+            "taskPriority",
+            bottomOfContainer
+          );
+          taskPriority.innerHTML = `Priority: ${taskArray[i].priority}`;
+    
+          if (taskArray[i].priority == "Low") {
+            taskPriority.style.color = "green";
+          } else if (taskArray[i].priority == "Medium") {
+            taskPriority.style.color = "orange";
+          } else {
+            taskPriority.style.color = "red";
+          }
+        }
+    
+        let taskDueDate = createDomElement(
           "p",
-          "taskPriority",
-          "taskPriority",
+          "taskDueDate",
+          "taskDueDate",
           bottomOfContainer
         );
-        taskPriority.innerHTML = `Priority: ${taskArray[i].priority}`;
-  
-        if (taskArray[i].priority == "Low") {
-          taskPriority.style.color = "green";
-        } else if (taskArray[i].priority == "Medium") {
-          taskPriority.style.color = "orange";
-        } else {
-          taskPriority.style.color = "red";
+        if (taskArray[i].date != "undefined undefined") {
+          taskDueDate.innerHTML = `${taskArray[i].date} | ${taskArray[i].time}`;
         }
       }
-  
-      let taskDueDate = createDomElement(
-        "p",
-        "taskDueDate",
-        "taskDueDate",
-        bottomOfContainer
-      );
-      if (taskArray[i].date != "undefined undefined") {
-        taskDueDate.innerHTML = `${taskArray[i].date} | ${taskArray[i].time}`;
+      createBottomOfContainer();
       }
-    }
+      
+  
+      
   };
 
 
+  const removeCard = () => {
+
+    let cardArr = Array.from(DomElements.allCardContainers);
+      
+        
+  
+        DomElements.removeButtonPopup.addEventListener('click', () => {
+            taskArray.splice(DomElements.removeButtonPopup.dataset.index, 1);
+            DomElements.taskInfoPopup.style.display = "none";
+            DomElements.overlay.style.display = "none";
+            displayTasks();
+        })
+      }
 
 const addListeners = () => {
     taskListener();
@@ -197,7 +249,8 @@ const addListeners = () => {
     overlayListener();
     dateButtonListener();
     displayTasks();
-    checkboxListener();
+    removeCard();
+    // checkboxListener();
 }
 
 

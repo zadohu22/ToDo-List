@@ -400,6 +400,15 @@ form {
   cursor: pointer;
 }
 
+.striked {
+  margin-left: 5px;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-decoration: line-through;
+}
+
 .bottomOfContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -485,11 +494,18 @@ form {
 }
 
 #taskName {
-  max-height: 200px;
-  padding: 10px;
+  resize: none;
+  border: none;
   border-radius: 10px;
+  padding: 10px;
+  max-height: 200px;
+  width: 100%;
   font-size: 20px;
   overflow: scroll;
+}
+
+#taskName:focus {
+  outline: none;
 }
 
 #taskName:hover {

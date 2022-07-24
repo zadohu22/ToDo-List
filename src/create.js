@@ -28,15 +28,16 @@ const DomElements = {
         allCardContainers: document.getElementsByClassName('cardContainer'),
         checkbox: document.getElementById("taskNameCheck"),
         taskInfoPopup: document.getElementById("taskInfoPopup"),
+        allTaskInfoPopup: document.getElementsByClassName("taskInfoPopup"),
         taskNamePopup: document.getElementById("taskName"),
         notesPopup: document.getElementById("taskNotes"),
         removeButtonPopup: document.getElementById("removeBtn"),
         markCompletePopup: document.getElementById("markComplete"),
         taskNameCheck: document.getElementById("taskNameCheck"),
-        bottomOfContainer: document.getElementById("bottomOfContainer")
+        bottomOfContainer: document.getElementById("bottomOfContainer"),
+        allBottomOfContainer: document.getElementsByClassName('bottomOfContainer')
 }
 
-let cardsArr = Array.from(DomElements.allCardContainers);
 
 const createDomElement = (element, className, idName, appendTo) => {
     const el = document.createElement(element);
@@ -45,4 +46,4 @@ const createDomElement = (element, className, idName, appendTo) => {
     appendTo.appendChild(el)
     return el
 }
-export { ToDo, DomElements, createDomElement, cardsArr };
+export { ToDo, DomElements, createDomElement };
