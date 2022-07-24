@@ -1,12 +1,11 @@
 class ToDo{
-    constructor(title, date, time, priority, number, notes){
+    constructor(title, date, time, priority, notes){
         this.title = title;
         // this.list = list;
-        this.notes = notes;
-        this.priority = priority;
-        this.number = number;
         this.date = date;
         this.time = time;
+        this.priority = priority;
+        this.notes = notes;
     }
 
     
@@ -26,9 +25,18 @@ const DomElements = {
         radios: document.querySelectorAll('input[type="radio"]'),
         content: document.getElementById("content"),
         cardContainer: document.getElementById('cardContainer'),
-        checkbox: document.getElementById("taskNameCheck")
+        allCardContainers: document.getElementsByClassName('cardContainer'),
+        checkbox: document.getElementById("taskNameCheck"),
+        taskInfoPopup: document.getElementById("taskInfoPopup"),
+        taskNamePopup: document.getElementById("taskName"),
+        notesPopup: document.getElementById("taskNotes"),
+        removeButtonPopup: document.getElementById("removeBtn"),
+        markCompletePopup: document.getElementById("markComplete"),
+        taskNameCheck: document.getElementById("taskNameCheck"),
+        bottomOfContainer: document.getElementById("bottomOfContainer")
 }
 
+let cardsArr = Array.from(DomElements.allCardContainers);
 
 const createDomElement = (element, className, idName, appendTo) => {
     const el = document.createElement(element);
@@ -37,4 +45,4 @@ const createDomElement = (element, className, idName, appendTo) => {
     appendTo.appendChild(el)
     return el
 }
-export { ToDo, DomElements, createDomElement };
+export { ToDo, DomElements, createDomElement, cardsArr };

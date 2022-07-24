@@ -31,12 +31,16 @@ const taskListener = () => {
             userInput.value,
             usableDate,
             usableTime,
-            prioritySelection()
+            prioritySelection(),
+            DomElements.textArea.value
           );
+          console.log(DomElements.textArea.value)
           taskArray.push(createTodo);
           console.log(taskArray);
       
           displayTasks();
+          
+          
           // close If statement
         }
         // close event Listener
@@ -62,7 +66,9 @@ const overlayListener = () => {
         DomElements.popup.style.display = "none";
         DomElements.overlay.style.display = "none";
         DomElements.pickerDiv.style.display = "none";
+        DomElements.taskInfoPopup.style.display = "none";
         DomElements.userInput.value = "";
+
       });
 }
 
@@ -80,10 +86,29 @@ const dateButtonListener = () => {
 }
 
 const cardContainerListener = () => {
-    cardContainer.addEventListener('click', () => {
-        console.log('cardListener working')
-    })
+    let cardsArr = Array.from(DomElements.allCardContainers);
+    cardsArr.forEach(e => {
+        let location = e.dataset.index;
+        e.addEventListener('click', (event) => {
+            if(!event.target.classList.contains("taskNameCheck")){
+                DomElements.taskInfoPopup.style.display = "flex";
+                DomElements.overlay.style.display = "block";
+                
+                DomElements.notesPopup.value = taskArray[location].notes;
+                console.log(taskArray[location].notes)
+            }
+        })
+        
+        DomElements.notesPopup.addEventListener('keyup', () => {
+            taskArray[location].notes = DomElements.notesPopup.value;
+            console.log(taskArray[location].notes)
+        })
+
+    });
 }
+
+
+
 
 const displayTasks = () => {
     while (content.firstChild) {
@@ -98,9 +123,11 @@ const displayTasks = () => {
         content
       );
       cardContainer.setAttribute('data-index', i);
-      console.log(cardContainer.dataset.index);
-
+      DomElements.taskNamePopup.innerText = taskArray[i].title;
+      
       cardContainerListener();
+    //   taskArray[i].notes = DomElements.notesPopup.value;
+
   
       let topOfContainer = createDomElement(
         "div",
@@ -162,12 +189,15 @@ const displayTasks = () => {
     }
   };
 
+
+
 const addListeners = () => {
     taskListener();
     createButtonListener();
     overlayListener();
     dateButtonListener();
     displayTasks();
+    checkboxListener();
 }
 
 
