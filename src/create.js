@@ -1,11 +1,11 @@
 class ToDo{
-    constructor(title, date, time, priority, notes){
+    constructor(title, date, time, priority, notes, list){
         this.title = title;
-        // this.list = list;
         this.date = date;
         this.time = time;
         this.priority = priority;
         this.notes = notes;
+        this.list = list;
     }
 
     
@@ -35,7 +35,12 @@ const DomElements = {
         markCompletePopup: document.getElementById("markComplete"),
         taskNameCheck: document.getElementById("taskNameCheck"),
         bottomOfContainer: document.getElementById("bottomOfContainer"),
-        allBottomOfContainer: document.getElementsByClassName('bottomOfContainer')
+        allBottomOfContainer: document.getElementsByClassName('bottomOfContainer'),
+        createNewListPopup: document.getElementById("createNewListPopup"),
+        newListBtn: document.getElementById("createNewList"),
+        newListInput: document.getElementById("newListInput"),
+        submitNewList: document.getElementById("submitNewList"),
+        listForm: document.getElementById("sidebarForm")
 }
 
 

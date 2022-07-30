@@ -68,6 +68,8 @@ const overlayListener = () => {
         DomElements.pickerDiv.style.display = "none";
         DomElements.taskInfoPopup.style.display = "none";
         DomElements.userInput.value = "";
+        DomElements.createNewListPopup.style.display = "none";
+        DomElements.newListInput.value = "";
         displayTasks();
 
       });
@@ -243,6 +245,40 @@ const displayTasks = () => {
         })
       }
 
+const newListBtnListener = () => {
+  DomElements.newListBtn.addEventListener('click', () => {
+    DomElements.createNewListPopup.style.display = 'flex';
+    DomElements.overlay.style.display = 'block';
+
+
+  })
+}
+
+const newListInputListener = () => {
+
+}
+
+const submitNewListListener = () => {
+  let i = 0;
+  DomElements.submitNewList.addEventListener('click', () => {
+    
+    i++;
+    console.log(i)
+    let newList = createDomElement('div', 'newList', 'newList', DomElements.listForm);
+    let checkbox = createDomElement('input', 'listCheckbox', `listCheckbox${i}`, newList);
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("name", "listCheckbox");
+    let listTitle = createDomElement('label', 'listTitle', 'listTitle', newList);
+    listTitle.setAttribute('for', `listCheckbox${i}`);
+    listTitle.textContent = DomElements.newListInput.value;
+    DomElements.newListInput.value = "";
+    DomElements.createNewListPopup.style.display = "none";
+    DomElements.overlay.style.display = "none";
+  })
+  
+
+}
+
 const addListeners = () => {
     taskListener();
     createButtonListener();
@@ -250,6 +286,8 @@ const addListeners = () => {
     dateButtonListener();
     displayTasks();
     removeCard();
+    newListBtnListener();
+    submitNewListListener();
     // checkboxListener();
 }
 

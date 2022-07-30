@@ -51,6 +51,9 @@ body {
 .addNewTodo {
   position: absolute;
   top: 70px;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 16px;
 }
 
 .createToDoPopup {
@@ -530,6 +533,114 @@ form {
 }
 
 #taskNotes:focus {
+  outline: none;
+}
+
+.projects {
+  margin-top: 100px;
+}
+
+.projectsContainer {
+  height: 60%;
+  width: 80%;
+  margin-top: 10px;
+  background-color: rgba(209, 203, 203, 0.342);
+}
+
+#sidebarForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.listCheckbox {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.viewAll,
+.newList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.viewAll input,
+.newList input {
+  margin-top: 10px;
+}
+
+.viewAll label,
+.newList label {
+  margin-top: 2px;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.createNewListPopup {
+  display: none;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 20px;
+  width: 400px;
+  height: 200px;
+  padding-top: 30px;
+  background-color: white;
+  z-index: 1002;
+  position: absolute;
+}
+
+#submitNewList {
+  width: 100%;
+  border: none;
+  height: 20%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#newListInput {
+  margin-top: 10px;
+  padding: 5px 5px 5px 5px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#newListInput:focus {
   outline: none;
 }
 /*# sourceMappingURL=styles.css.map */

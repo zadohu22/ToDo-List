@@ -12,7 +12,14 @@
     
 </head>
 <body>
+    <div class="createNewListPopup" id="createNewListPopup">
+        <h3>New Project/List name</h3>
+        <form action="#" onsubmit="return false">
+            <input type="text" name="newListInput" id="newListInput">
+            <input type="submit" id="submitNewList" value="Submit">
 
+        </form>
+    </div>
     <div class="createToDoPopup" id="createToDoPopup">
         <form action="#" method="post" onsubmit="return false">
             <div class="inputContainer">
@@ -88,6 +95,22 @@
     <div class="sidebar">
         <h1 class="appName" id="appName">ToDoList</h1>
         <button class="addNewTodo" id="addNewToDo">Create +</button>
+
+        
+        <h1 class="projects">Projects/Lists</h1>
+        <button class="createNewList" id="createNewList">Create new list +</button>
+        <div class="projectsContainer">
+            <form action="#" method="post" id="sidebarForm">
+                <div class="viewAll">
+                    <input type="checkbox" name="listCheckbox" id="listCheckbox" class="listCheckbox">
+                    <label for="listCheckbox">View All Tasks</label>
+                    
+                </div>
+                
+                
+
+            </form>
+        </div>
     </div>
 
    
